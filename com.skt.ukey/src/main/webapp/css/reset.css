@@ -1,0 +1,19 @@
+@charset "utf-8";
+/****************************************************************/
+/*			START UP 2012-12-07 ¿ÀÀü 11:57:13 by MATTHEW 		*/
+/****************************************************************/
+
+html,body,div,span,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,blockquote,p,address,pre,cite,form,fieldset,input,textarea,select,table,th,td{padding:0;margin:0}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;line-height:1}
+fieldset,img,abbr,acronym{border:0 none}
+/*legend{font-size:0;width:0;height:0;position:absolute;line-height:0}*/
+ul,ol{list-style-type:none}
+table{border-collapse:collapse;border-spacing:0;border:0 none}
+caption,th,td{text-align:left;font-weight:normal}
+address, caption, strong, em, cite {font-weight:normal; font-style:normal}
+ins {text-decoration:none}
+del {text-decoration:line-through}
+blockquote:before,blockquote:after,q:before,q:after{content:""}
+blockquote,q{quotes:"" ""}
+hr{display:none}
+a:link,a:hover,a:visited,a:active{text-decoration:none}

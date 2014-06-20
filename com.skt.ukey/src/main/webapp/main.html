@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title></title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+<link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+
+<link rel="stylesheet" href="css/normalize.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/login.css">
+<script src="js/vendor/modernizr-2.6.2.min.js"></script>
+<script type="text/javascript" src="scripts/angular.js"></script>
+</head>
+<body>
+	<!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+	<!-- Content Start -->
+	<div id="wrap">
+		<header class="header">
+			<div class="logo">
+				<img src="imgs/logo.png" />
+			</div>
+			<nav>
+				<ul class="nav nav-tabs" style="margin-top: 8px;">
+					<li><a
+						href="javascript:link('/ukey/container.jsp?url=customer')">고객정보</a></li>
+					<li class="active"><a
+						href="javascript:link('/ukey/container.jsp?url=contact')">접촉이력</a></li>
+				</ul>
+			</nav>
+			<!--#include virtual = "/include/main_sysSet.asp"-->
+			<div class="sysSet">
+				<ul class="sysControl">
+					<li><a href="javascript:location.reload();"><img
+							class="sysReset" src="imgs/main/btn_sysReset.png" /></a></li>
+					<li><a href="#"><img class="sysSpeech"
+							src="imgs/main/btn_sysSpeech.png" /></a></li>
+					<li><a href="#"><img class="sysCustomer"
+							src="imgs/main/btn_sysCustomer.png" /></a></li>
+					<li><a href="#"><img class="sysMovie"
+							src="imgs/main/btn_sysMovie.png" /></a></li>
+					<li><a href="main_calendar.asp"><img class="sysReserv"
+							src="imgs/main/btn_sysReserv.png" /></a></li>
+					<li><a href="#"><img class="sysSystem"
+							src="imgs/main/btn_sysSystem.png" /></a></li>
+				</ul>
+			</div>
+
+		</header>
+		<!--end of document header-->
+
+		<div id="container">
+			<!--#include virtual = "/include/main_search.asp"-->
+			<section class="search">
+				<fieldset>
+					<legend>ê²ìí¼</legend>
+					<input type="text" class="searchInput" name="searchText"
+						value="Go to a contents"
+						onBlur="if(this.value=='')this.value='Go to a contents'"
+						onFocus="if(this.value=='Go to a contents')this.value='' ">
+					<input type="image" class="searchBtn"
+						src="imgs/main/btn_keyboard.png" alt="" title="ê²ì">
+				</fieldset>
+				<div class="autoComp">
+					<img src="imgs/main/auto_complete.png" />
+				</div>
+				<span><img src="imgs/main/btn_searchGo.png" /><img
+					src="imgs/main/search_justLeft.png" /></span>
+				<!-- <div class="alertWrap"><span class="alert"><img src="imgs/main/btn_alert.png" /></span><span class="btn_ukeymap"><img src="imgs/main/btn_star.png" /></span></div>
+		<div class="memo"><img src="imgs/main/btn_memo.png" /></div> -->
+			</section>
+			<!-- //íµí©ê²ì -->
+
+
+
+
+			<div id="ts" class="container-fluid" style="margin-left: 100px;">
+				<p>
+					<span class="glyphicon glyphicon-bookmark"></span>&nbsp;접촉이력
+				</p>
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<form class="form-inline" role="form" action="/ukey/">
+							<div class="form-group">
+								<label for="customer-type">구분&nbsp;&nbsp;</label> <select
+									class="form-control" id="customer-type">
+									<option>서비스관리번호</option>
+									<option>주민번호</option>
+								</select>
+							</div>
+							<input type="tel" maxlength="8" class="form-control"
+								id="inputTel2" placeholder="12343456" value="010-9649-8507">
+							<label for="" class="control-label">기간</label> <input type="date"
+								class="form-control" /> <label for="" class="control-label">~</label>
+							<input type="date" class="form-control" />
+							<button type="submit" class="btn btn-default">
+								<span class="glyphicon glyphicon-search"></span>&nbsp;조&nbsp;회
+							</button>
+						</form>
+					</div>
+				</div>
+				<form class="form-horizontal" role="form">
+					<div class="panel panel-info">
+						<div class="panel-heading">
+							<span class="glyphicon glyphicon-tag"></span>&nbsp;기본정보
+						</div>
+						<div class="panel-body">
+							<div class="col-md-4">
+								<!-- 1st Column -->
+								<div class="form-group">
+									<label for="customer-name" class="col-md-4 control-label">고객명</label>
+									<div class="col-md-4" style="padding-right: 0px;">
+										<input type="text" class="form-control" id="customer-name"
+											placeholder="(고객명)" value="홍길동2">
+									</div>
+									<div class="col-md-4"
+										style="padding-left: 0px; padding-right: 0px;">
+										<input type="text" class="form-control text-center"
+											style="padding: 0px; margin: 0px;">
+
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="customer-type" class="col-md-4 control-label">고객유형</label>
+									<div class="col-md-4" style="padding-right: 0px;">
+										<input type="text" class="form-control" id="" placeholder="개인"
+											value="개인">
+									</div>
+									<div class="col-md-4" style="padding-right: 0px;">
+										<input type="text" class="form-control" id="" placeholder="일반">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="customer-type" class="col-md-4 control-label">대표번호</label>
+									<div class="col-md-4" style="padding-right: 0px;">
+										<input type="text" class="form-control" id="" placeholder="개인"
+											value="이동전화">
+									</div>
+									<div class="col-md-4" style="padding-right: 0px;">
+										<input type="text" class="form-control" id="" placeholder="일반"
+											value="010-9649-8507">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="customer-type" class="col-md-4 control-label">겸용서비스</label>
+									<div class="col-md-4" style="padding-right: 0px;">
+										<input type="text" class="form-control" id="" placeholder="개인">
+									</div>
+									<div class="col-md-4" style="padding-right: 0px;">
+										<input type="text" class="form-control" id="" placeholder="일반">
+									</div>
+								</div>
+							</div>
+							<!-- 1st Column -->
+							<div class="col-md-4">
+								<!-- 2nd Column -->
+
+								<div class="form-group">
+									<label for="customer-type" class="col-md-4 control-label">종류/상태</label>
+									<div class="col-md-4" style="padding-right: 0px;">
+										<input type="text" class="form-control" id="" placeholder="개인"
+											value="일반">
+									</div>
+									<div class="col-md-4" style="padding-right: 0px;">
+										<input type="text" class="form-control" id="" placeholder="일반"
+											value="사용중">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="customer-type" class="col-md-4 control-label">표준요금제</label>
+									<div class="col-md-8" style="padding-right: 0px;">
+										<input type="text" class="form-control" id="" placeholder="개인"
+											value="LTE T끼리맞춤형 62">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="customer-type" class="col-md-4 control-label">할부정보</label>
+									<div class="col-md-8" style="padding-right: 0px;">
+										<div class="input-group" style="padding-right: 0px;">
+											<input type="num" class="form-control text-center"
+												placeholder="0" value="1"> <span
+												class="input-group-btn">
+												<button class="btn btn-default" type="button">상세정보</button>
+											</span>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="customer-type" class="col-md-4 control-label">해택정보</label>
+									<div class="col-md-8" style="padding-right: 0px;">
+										<div class="input-group">
+											<input type="text" class="form-control text-center"
+												placeholder="T끼리 온가족할인" value="T할부지원/약정일"> <span
+												class="input-group-btn">
+												<button class="btn btn-default" type="button">상세정보</button>
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- 2nd Column -->
+							<div class="col-md-4">
+								<!-- 3rd Column -->
+								<div class="form-group">
+									<label for="customer-name" class="col-md-4 control-label">단말기</label>
+									<div class="col-md-4" style="padding-right: 0px;">
+										<input type="text" class="form-control" id="customer-name"
+											placeholder="SHW-M110S" value="SH*******">
+									</div>
+									<div class="col-md-4" style="padding-left: 0px;">
+										<div class="input-group">
+											<input type="text" class="form-control text-center"
+												placeholder="123******" style="padding: 0px; margin: 0px;"
+												value="04********"> <span class="input-group-btn">
+												<button class="btn btn-default" type="button">상세</button>
+											</span>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="customer-name" class="col-md-4 control-label">용도/방식/상태</label>
+									<div class="col-md-8" style="padding-right: 0px;"">
+										<div class="col-md-4" style="padding-right: 0px;">
+											<input type="text" class="form-control" id="customer-name"
+												placeholder="일반" value="일반">
+										</div>
+										<div class="col-md-4"
+											style="padding-left: 0px; padding-right: 0px;">
+											<input type="text" class="form-control text-center"
+												placeholder="3G" value="4G">
+										</div>
+										<div class="col-md-4" style="padding-left: 0px;">
+											<input type="text" class="form-control text-center"
+												placeholder="" value="USIM기변">
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="customer-name" class="col-md-4 control-label">가입일/해지일</label>
+									<div class="col-md-4" style="padding-right: 0px;">
+										<input type="date" class="form-control text-center" id="">
+									</div>
+									<div class="col-md-4" style="padding-left: 0px;">
+										<input type="date" class="form-control text-center" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="customer-name" class="col-md-4 control-label">서비스등급</label>
+									<div class="col-md-8" style="padding-right: 0px;"">
+										<div class="col-md-5" style="padding-right: 0px;">
+											<input type="text" class="form-control" id="customer-name"
+												placeholder="GOLD(G1)" value="Gold">
+										</div>
+										<div class="col-md-5"
+											style="padding-left: 0px; padding-right: 0px;">
+											<input type="text" class="form-control text-center"
+												placeholder="">
+										</div>
+										<div class="col-md-2" style="padding-left: 0px;">
+											<input type="text" class="form-control text-center"
+												placeholder="G1">
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- 3rd Column -->
+						</div>
+					</div>
+
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<div class="container-fluid">
+								<div class="col-md-4">
+									<span class="glyphicon glyphicon-tag"></span>변경이력
+								</div>
+								<div class="col-md-8 text-right">
+									<ul class="pagination "
+										style="margin-top: 0px; margin-bottom: 0px;">
+										<li><a href="#">&laquo;</a></li>
+										<li><a href="#">1</a></li>
+										<li><a href="#">2</a></li>
+										<li><a href="#">3</a></li>
+										<li><a href="#">4</a></li>
+										<li><a href="#">5</a></li>
+										<li><a href="#">&raquo;</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="panel-body">
+							<table class="table table-striped">
+								<thead>
+									<tr>
+										<th class="col-md-1">처리일</th>
+										<!-- 1 -->
+										<th class="col-md-1">구분</th>
+										<!-- 2 -->
+										<th class="col-md-2">변경유형</th>
+										<!-- 3 -->
+										<th class="col-md-2">사유</th>
+										<!-- 4 -->
+										<th class="col-md-1">관련변경</th>
+										<!-- 5 -->
+										<th class="col-md-1">당일취소</th>
+										<!-- 6 -->
+										<th class="col-md-1">작업상태</th>
+										<!-- 7 -->
+										<th class="col-md-3">변경내용</th>
+										<!-- 8 -->
+									</tr>
+								</thead>
+								<tbody>
+
+									<tr>
+										<td>2000-05-02</td>
+										<td>서비스</td>
+										<td>부가서비스</td>
+										<td>온가족할인가입</td>
+										<td>부가요금제</td>
+										<td></td>
+										<td></td>
+										<td>TB끼리 결합 가족등록</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+					</div>
+				</form>
+
+			</div>
+			<div style="height: 200px;"></div>
+			<!--#include virtual = "/include/main_lnb.asp"-->
+			<!-- ê¸°ë³¸ ë©ë´ -->
+			<aside class="lnb icon on">
+				<div class="icon_menu_wrap">
+					<nav>
+						<ul>
+							<li><img id="lnbMenu_btn" src="imgs/main/lnbMenu_00.png" /></li>
+							<li><img src="imgs/main/lnbMenu_02.png" /></li>
+						</ul>
+					</nav>
+				</div>
+			</aside>
+			<!-- //ê¸°ë³¸ ë©ë´ -->
+
+			<!-- ìì´ì½ ë©ë´ -->
+			<aside class="lnb all">
+				<section>
+					<nav>
+						<ul>
+							<li><img id="lnbMenu_btnIcon"
+								src="imgs/main/lnbMenu_wide00.png" /></li>
+							<li class="def"><a href="javascript:void(0)"><img
+									src="imgs/main/lnb_m00_on.png" /></a></li>
+							<li><a href="javascript:void(0)"><img
+									src="imgs/main/lnb_m01_on.png" /></a></li>
+							<li><a href="javascript:void(0)"><img
+									src="imgs/main/lnb_m02_off.png" /></a></li>
+							<li><a href="javascript:void(0)"><img
+									src="imgs/main/lnb_m03_off.png" /></a></li>
+							<li><a href="javascript:void(0)"><img
+									src="imgs/main/lnb_m04_off.png" /></a></li>
+							<li><a href="javascript:void(0)"><img
+									src="imgs/main/lnb_m05_off.png" /></a></li>
+							<li><a href="javascript:void(0)"><img
+									src="imgs/main/lnb_m06_off.png" /></a></li>
+							<li><a href="javascript:void(0)"><img
+									src="imgs/main/lnb_m07_off.png" /></a></li>
+							<li><a href="javascript:void(0)"><img
+									src="imgs/main/lnb_m08_off.png" /></a></li>
+							<li><a href="javascript:void(0)"><img
+									src="imgs/main/lnb_m09_off.png" /></a></li>
+							<li><a href="javascript:void(0)"><img
+									src="imgs/main/lnb_m10_off.png" /></a></li>
+							<li><a href="javascript:void(0)"><img
+									src="imgs/main/lnb_m11_off.png" /></a></li>
+							<li><a href="javascript:void(0)"><img
+									src="imgs/main/lnb_m12_off.png" /></a></li>
+							<li><a href="javascript:void(0)"><img
+									src="imgs/main/lnb_m13_off.png" /></a></li>
+							<li><a href="javascript:void(0)"><img
+									src="imgs/main/lnb_m14_off.png" /></a></li>
+						</ul>
+					</nav>
+				</section>
+			</aside>
+			<!-- //ìì´ì½ ë©ë´ -->
+
+			<!-- ìì´ì½ ë©ë´ ìë¸1~2 -->
+			<aside class="sub01 sb_menu">
+				<section>
+					<nav>
+						<ul>
+							<li><a href="javascript:void(0);"><img
+									src="imgs/main/lnb_menu_s01_off.png" /></a></li>
+							<li><a href="javascript:void(0);"><img
+									src="imgs/main/lnb_menu_s02_off.png" /></a></li>
+							<li><a href="javascript:void(0);"><img
+									src="imgs/main/lnb_menu_s03_off.png" /></a></li>
+							<li><a href="javascript:void(0);"><img
+									src="imgs/main/lnb_menu_s04_off.png" /></a></li>
+							<li><a href="javascript:void(0);"><img
+									src="imgs/main/lnb_menu_s05_off.png" /></a></li>
+							<li><a href="javascript:void(0);"><img
+									src="imgs/main/lnb_menu_s06_off.png" /></a></li>
+						</ul>
+					</nav>
+				</section>
+			</aside>
+			<aside class="sub02 sb_menu">
+				<section>
+					<nav>
+						<ul>
+							<li><a href="javascript:void(0);"><img
+									src="imgs/main/lnb_menu_s02_01_off.png" /></a></li>
+							<li><a href="javascript:void(0);"><img
+									src="imgs/main/lnb_menu_s02_02_off.png" /></a></li>
+							<li><a href="javascript:void(0);"><img
+									src="imgs/main/lnb_menu_s02_03_off.png" /></a></li>
+							<li><a href="javascript:void(0);"><img
+									src="imgs/main/lnb_menu_s02_04_off.png" /></a></li>
+							<li><a href="javascript:void(0);"><img
+									src="imgs/main/lnb_menu_s02_05_off.png" /></a></li>
+							<li><a href="javascript:void(0);"><img
+									src="imgs/main/lnb_menu_s02_06_off.png" /></a></li>
+						</ul>
+					</nav>
+				</section>
+			</aside>
+			<!-- //ìì´ì½ ë©ë´ ìë¸1~2 -->
+		</div>
+		<footer class="footer">
+			<div class="pageNav">
+				<img class="btn_temp" src="imgs/main/btn_arrowLeft.png" /><img
+					src="imgs/main/btn_arrowRight.png" />
+			</div>
+			<nav>
+				<ul>
+					<li><a href="main01_01.asp"><img
+							src="imgs/main/icon_document_01_01_on.png" /></a></li>
+					<li><a href="main01_02.asp"><img
+							src="imgs/main/icon_document_01_02_off.png" /></a></li>
+					<li><a href="main01_03.asp"><img
+							src="imgs/main/icon_document_01_03_off.png" /></a></li>
+				</ul>
+			</nav>
+			<div class="recently">
+				<img src="imgs/main/icon_document_recently.png" />
+			</div>
+		</footer>
+		<!--end of footer-->
+	</div>
+	<!--#include virtual = "/include/main_commonElement.asp"-->
+	<div class="speech_default_wrap">
+		<div class="speech_default"></div>
+	</div>
+	<div class="speech_wrap01">
+		<div class="speech">
+			<textarea class="speechTxt01" /></textarea>
+			<span class="speechMic inTxt01"></span> <span class="speechEnter01"></span>
+			<span class="speechCancel"></span>
+		</div>
+	</div>
+	<div class="speech_wrap02">
+		<div class="speech">
+			<textarea class="speechTxt02" /></textarea>
+			<span class="speechMic inTxt02"></span> <span class="speechEnter02"></span>
+			<span class="speechCancel"></span>
+		</div>
+	</div>
+
+	<div class="ocr_wrap">
+		<div class="ocr">
+			<div class="ocrComplete"></div>
+			<div class="lightWrap">
+				<span class="scanLight"><img src="imgs/main/scan_light.png" /></span>
+			</div>
+		</div>
+	</div>
+
+	<div class="movie_wrap">
+		<div class="movie">
+			<video id="movie01" width="528" height="297" controls>
+				<source src="imgs/skt_ad.mp4" type="video/mp4">
+				<!-- <source src="movie.ogg" type="video/ogg"> -->
+				Your browser does not support the video tag.
+			</video>
+			<a href="javascript:void(0);" class="btn_x"><img
+				src="imgs/main/btn_x.png" alt="close"></a>
+		</div>
+	</div>
+
+	<!-- Memo -->
+	<div class="memoOpen_wrap">
+		<div class="memoOpen"></div>
+	</div>
+	<!-- //Memo -->
+
+	<div class="alert_con_wrap">
+		<img src="imgs/main/alert.png" alt="">
+	</div>
+
+	<div class="customer_con_wrap">
+		<img src="imgs/main/customer_display.png" alt="">
+	</div>
+
+	<!-- Ukey Map -->
+	<div class="ukeymap_wrap">
+		<div class="ukeymap"></div>
+	</div>
+	<!-- //Ukey Map -->
+
+
+
+	<!-- Recently Open -->
+	<div class="recent_wrap">
+		<div class="recent">
+			<div class="scroll_wrap" id="testwrap">
+				<div class="grid">
+					<div class="page p01">
+						<img src="imgs/main/recent_01.png" alt="">
+					</div>
+					<div class="page p02">
+						<img src="imgs/main/recent_02.png" alt="">
+					</div>
+					<div class="page p03">
+						<img src="imgs/main/recent_03.png" alt="">
+					</div>
+					<div class="page p04">
+						<img src="imgs/main/recent_04.png" alt="">
+					</div>
+					<div class="page p05">
+						<img src="imgs/main/recent_05.png" alt="">
+					</div>
+				</div>
+			</div>
+		</div>
+		<a href="javascript:void(0);" class="btn_close"><img
+			src="imgs/main/recent_close.png" alt=""></a>
+	</div>
+	<!-- //Recently Open -->
+
+	<div class="req_sign_wrap">
+		<div class="req_sign">
+			<div class="btn_close">
+				<img src="imgs/main/btn_close.png" />
+			</div>
+			<div class="btnSet">
+				<span><img class="btn_ok" src="imgs/main/btn_ok.png" /></span> <span><img
+					class="btn_cancel" src="imgs/main/btn_cancel.png" /></span>
+			</div>
+		</div>
+		<div class="req_sign_02"></div>
+		<div class="req_sign_03">
+			<div class="btn_close">
+				<img src="imgs/main/btn_close.png" />
+			</div>
+		</div>
+	</div>
+
+	<div class="req_sign_wrap_user">
+		<div class="req_sign_user">
+			<div class="btn_close">
+				<img src="imgs/main/btn_close.png" />
+			</div>
+			<div class="btnSet">
+				<span><img class="btn_ok" src="imgs/main/btn_ok.png" /></span> <span><img
+					class="btn_cancel" src="imgs/main/btn_cancel.png" /></span>
+			</div>
+		</div>
+	</div>
+
+	<div class="req_card_wrap">
+		<div class="req_card">
+			<div class="btn_close">
+				<img src="imgs/main/btn_close.png" />
+			</div>
+			<div class="btnSet">
+				<span><img class="btn_ok" src="imgs/main/btn_ok.png" /></span> <span><img
+					class="btn_cancel" src="imgs/main/btn_cancel.png" /></span>
+			</div>
+		</div>
+		<div class="req_card_02"></div>
+		<div class="req_card_03">
+			<div class="btn_close">
+				<img src="imgs/main/btn_close.png" />
+			</div>
+		</div>
+	</div>
+
+	<div class="req_card_wrap_user">
+		<div class="req_card_user">
+			<div class="cardList">
+				<img src="imgs/main/pop_request_card_list.png" />
+			</div>
+			<div class="btn_close">
+				<img src="imgs/main/btn_close.png" />
+			</div>
+			<div class="btnSet">
+				<span><img class="btn_ok" src="imgs/main/btn_ok.png" /></span> <span><img
+					class="btn_cancel" src="imgs/main/btn_cancel.png" /></span>
+			</div>
+		</div>
+	</div>
+
+	<!-- Content end -->
+
+
+
+	<script src="js/vendor/jquery-1.10.2.min.js"></script>
+	<script src="js/plugins.js"></script>
+	<script src="js/main.js"></script>
+
+	<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+	
+</body>
+</html>

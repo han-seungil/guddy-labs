@@ -1,0 +1,105 @@
+/**
+ * dropdownkit.css
+ * > demos styles for Dropdown Kit jQuery plugin
+ */
+
+/*---------------------------------
+ *  Generic
+ *---------------------------------*/
+.ddkit-anchor{position:relative;}
+.ddkit-anchor .ddkit-target{display:none;position:absolute;z-index:1000;}
+
+/* Dripdown list */
+.ddkit-anchor .ddkit-target{width:160px;margin:0;background:#666;}
+.ddkit-anchor .ddkit-target ul{margin:0;padding:0;list-style:none;}
+.ddkit-anchor .ddkit-target ul li{display:block;margin:0;padding:0;}
+.ddkit-anchor .ddkit-target ul li a{display:block;padding:5px 10px;color:#fff;text-decoration:none;}
+.ddkit-anchor .ddkit-target ul li a:hover{background:#000;}
+
+/* Icons */
+.demo-icon{display:block;margin:0 auto;background:transparent url("../images/arrows.png") no-repeat 0 0;}
+
+/*---------------------------------
+ *  Demos > Dropdown
+ *---------------------------------*/
+.demo-dropdowns{margin:0 0 10px;padding:10px 10px 10px 160px;background:#eee;}
+.demo-dropdowns h3{margin:0 0 10px;}
+
+.demo-dropdown{width:175px;padding:5px;margin:10px 0 0;background:#72a024;}
+.demo-dropdown:first-child{margin:0;}
+.demo-dropdown .demo-label,
+.demo-dropdown .demo-label a{color:#fff;}
+.demo-dropdown .demo-label a:hover{color:#fff;background:#72a024;}
+
+/* Popup */
+.demo-dropdown .ddkit-trigger{display:block;height:18px;text-decoration:none;}
+.demo-dropdown .ddkit-target{padding:5px 0;}
+
+/* Opened */
+.demo-dropdown.ddkit-opened{background:#666;}
+.demo-dropdown.ddkit-opened .ddkit-trigger,
+.demo-dropdown.ddkit-opened .demo-label{color:#fff;}
+
+/*---------------------------------
+ *  Demos > Combobox
+ *---------------------------------*/
+.demo-combobox{width:160px;}
+.demo-combobox .ddkit-trigger{height:20px;color:#000;line-height:1em;background:none;}
+.demo-combobox .demo-label{display:block;float:left;width:121px;height:12px;padding:3px 7px;border:1px solid #e1e1e1;border-right-width:0;}
+.demo-combobox .demo-button{display:block;float:right;width:12px;height:13px;padding:7px 6px 0;background-color:#000;}
+.demo-combobox .demo-icon{float:none;width:14px;height:7px;margin:0;background-position:0 0;}
+.demo-combobox .ddkit-target{width:179px;background:#666;}
+.demo-combobox.ddkit-opened .demo-label{color:#fff;border-color:#666;background:#666;}
+.demo-combobox.ddkit-opened .demo-icon{background-position:-14px 0px;}
+
+/*---------------------------------
+ *  Demos > Toggle
+ *---------------------------------*/
+.demo-toggle{width:220px;}
+.demo-toggle .ddkit-trigger{display:block;margin:0 0 2px;padding:4px;text-decoration:none;color:#fff;background:#72a024;}
+.demo-toggle .ddkit-trigger .demo-icon{float:left;width:14px;height:6px;margin:7px;background-color:transparent;background-position:0 0;}
+.demo-toggle.ddkit-opened .ddkit-trigger .demo-icon{background-position:-14px 0px;}
+.demo-toggle .ddkit-target{display:block;position:static;width:220px;z-index:1;background:#f8f8f8;}
+.demo-toggle .ddkit-target ul li a{color:#000;}
+.demo-toggle .ddkit-target ul li a:hover{color:#fff;}
+
+/*---------------------------------
+ *  Demos > Tabs
+ *---------------------------------*/
+.demo-tabs{position:relative;}
+.demo-tabs > ul{margin:0;padding:0;list-style:none;}
+.demo-tabs > ul > li.ddkit-anchor{position:static;float:left;display:block;margin:0 2px 2px 0;}
+.demo-tabs > ul > li.ddkit-anchor .ddkit-trigger{display:block;padding:4px 10px;color:#fff;background:#72a024;}
+.demo-tabs > ul > li.ddkit-anchor .ddkit-trigger:hover{text-decoration:none;background:#666;}
+.demo-tabs > ul > li.ddkit-anchor.ddkit-opened .ddkit-trigger{color:#000;background:#ccc;}
+.demo-tabs .ddkit-target{display:none;padding:10px;border:1px solid #eee;background:#f8f8f8;}
+
+/*---------------------------------
+ *  Demos > Tooltip
+ *---------------------------------*/
+.demo-tooltip{display:inline;padding:4px;color:#fff;}
+.demo-tooltip .ddkit-trigger{height:20px;cursor:help;padding:0 2px;}
+.demo-tooltip .ddkit-target{z-index:99999;display:none;width:180px;padding:10px;color:#000;border:1px solid #d9d9d9;background:#fff;
+    -moz-border-radius:5px;-webkit-border-radius:5px;-opera-border-radius:5px;border-radius:5px;	
+	-moz-box-shadow:0 2px 4px #ccc;-webkit-box-shadow:0 2px 4px #ccc;box-shadow:0 2px 4px #ccc;
+}
+.demo-tooltip.closebutton .ddkit-target{padding-top:20px;}
+.demo-tooltip .ddkit-target .ddkit-close{position:absolute;top:5px;right:5px;width:15px;height:15px;cursor:pointer;background:transparent url("../images/close.png") no-repeat 0 0;}
+.demo-tooltip .ddkit-target h3{margin:0;padding:5px 7px;color:#000;border-bottom:1px solid #d9d9d9;}
+.demo-tooltip .ddkit-target ul li a{color:#000;}
+.demo-tooltip .ddkit-target ul li a:hover{background:#eee;}
+
+/*---------------------------------
+ *  Demos > Special usage
+ *---------------------------------*/
+ 
+/* External target */
+.demo-dropdown.special.two{width:300px;}
+.ddkit-target.external{padding:10px;border:1px solid #eee;background:#666;}
+.ddkit-target.external,
+.ddkit-target.external a{color:#fff;}
+.ddkit-target.external p{margin:0;}
+
+/* Cloned target */
+.demo-dropdown.special.cloned{width:350px;}
+

@@ -1,0 +1,128 @@
+<div id="ts" class="container-fluid" style="margin-left: 100px;">
+    <p>
+        <span class="glyphicon glyphicon-bookmark"></span>&nbsp;고객정보
+    </p>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <form class="form-inline" role="form" action="<c:url value=" / " />">
+                <div class="form-group">
+                    <label for="customer-type">구분&nbsp;&nbsp;</label>
+                    <select class="form-control" id="customer-type">
+                        <option>이동번화번호</option>
+                        <option>주민번호</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="sr-only" for="inputTel1">telephone</label>
+                    <select class="form-control" id="inputTel1">
+                        <option>010</option>
+                        <option>011</option>
+                        <option>016</option>
+                        <option>017</option>
+                        <option>018</option>
+                        <option>019</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="sr-only" for="inputTel2">telephone</label>
+                    <input type="tel" maxlength="8" class="form-control" id="inputTel2" placeholder="12343456">
+                </div>
+                <button type="submit" class="btn btn-default">
+                    <span class="glyphicon glyphicon-search"></span>&nbsp;조&nbsp;회
+                </button>
+            </form>
+        </div>
+    </div>
+    <form class="form-horizontal" role="form">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <span class="glyphicon glyphicon-tag"></span>&nbsp;기본정보
+            </div>
+            <div class="panel-body">
+                <div class="col-md-4">
+                    <!-- 1st Column -->
+                    <div class="form-group">
+                        <label for="changeid" class="col-md-4 control-label">변경유형</label>
+                        <div class="col-md-8">
+                            <select class="form-control" id="customer-type">
+                                <option>신규</option>
+                                <option>기변</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="customer-name" class="col-md-4 control-label">고객명</label>
+                        <div class="col-md-4" style="padding-right:0px;">
+                            <input type="text" class="form-control" id="customer-name" placeholder="(고객명)">
+                        </div>
+                        <div class="col-md-4" style="padding-left:0px;">
+                            <div class="input-group">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button">실명</button>
+                                </span>
+                                <input type="text" class="form-control text-center" value="Y" placeholder="12344444" style="padding:0px;margin:0px;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="customer-name" class="col-md-4 control-label">연락번호1</label>
+                        <div class="col-md-3" style="padding-right:0px;">
+                            <select class="form-control" id="inputTel1">
+                                <option>010</option>
+                                <option>011</option>
+                                <option>016</option>
+                                <option>017</option>
+                                <option>018</option>
+                                <option>019</option>
+                            </select>
+                        </div>
+                        <div class="col-md-5" style="padding-left:0px;">
+                            <input type="text" class="form-control" id="customer-name" placeholder="전화번호">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="customer-name" class="col-md-4 control-label">연락번호2</label>
+                        <div class="col-md-3" style="padding-right:0px;">
+                            <select class="form-control" id="inputTel1">
+                                <option>010</option>
+                                <option>011</option>
+                                <option>016</option>
+                                <option>017</option>
+                                <option>018</option>
+                                <option>019</option>
+                            </select>
+                        </div>
+                        <div class="col-md-5" style="padding-left:0px;">
+                            <input type="text" class="form-control" id="customer-name" placeholder="전화번호">
+                        </div>
+                    </div>
+                </div>
+                <!-- 1st Column -->
+                <div class="col-md-4">
+                    <!-- 2nd Column -->2</div>
+                <!-- 2nd Column -->
+                <div class="col-md-4">
+                    <!-- 3rd Column -->3</div>
+                <!-- 3rd Column -->
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <ul id="payment-view" class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#detail-view" data-toggle="tab">상세정보</a>
+                    </li>
+                    <li>
+                        <a href="#benifit-view" data-toggle="tab">복지해택정보</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="tab-content">
+                <div class="tab-pane active" id="detail-view">상세</div>
+                <div class="tab-pane" id="benifit-view">복지</div>
+            </div>
+        </div>
+    </form>
+
+</div>

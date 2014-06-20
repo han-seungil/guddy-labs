@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="kr">
+<head>
+	<meta charset="utf-8">
+	<title>SK UKey 3.0</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<link rel="stylesheet" href="css/login.css" type="text/css" />
+	<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+	<!-- Dropdown Kit CSS file -->
+	<link rel="stylesheet" type="text/css" href="css/dropdownkit.css" media="screen, projection" />
+	<!-- Dropdown Kit script -->
+	<script type="text/javascript" src="js/jquery.dropdownkit.1.0.js"></script>
+	<script type="text/javascript">
+		$(window).load(function(){
+			// Dropdown Kit
+			if ($.fn.dropdownkit){
+				
+				// Tooltips
+				$('.demo-tooltip.standard').dropdownkit({
+					group:'demo-tooltip',
+					bodyclick:true
+				});
+				
+				$('.demo-tooltip.closebutton').dropdownkit({
+					group:'demo-tooltip',
+					hover:true,
+					closebtn:true
+				});
+				
+
+			}
+		});	
+	</script>
+</head>
+
+<body>
+		<div class="loginTop"><img src="imgs/main/login_top.png" /></div>
+    <div id="login-form">
+        <h1>U.Key Login</h1>
+        <fieldset>
+            <form action="javascript:void(0);" method="get">
+                <input id="id" 				type="text" 		required value="ID"				onBlur="if(this.value=='')this.value='ID'" onFocus="if(this.value=='ID')this.value='' " >
+                <!-- JS because of IE support; better: placeholder="ID"   -->
+                <input id="password"	type="password"	required value="Password"	onBlur="if(this.value=='')this.value='Password'" onFocus="if(this.value=='Password')this.value='' ">
+                <!-- JS because of IE support; better: placeholder="Password" -->
+                <span>
+                	<div class="ddkit-anchor demo-tooltip standard">
+										<a href="#" class="ddkit-trigger" position="bottom">Forgot Password ?</a>
+										<div class="ddkit-target">
+											<ul>
+												<li>아이디는 ukey이고 <br />비밀번호는 올해의 연도입니다.</li>
+											</ul>
+										</div>
+									</div>
+								</span><input type="submit" value="Login" id="sLogin">
+            </form>
+        </fieldset>
+    </div><!-- end login-form -->
+</body>
+
+<script type="text/javascript">
+function vibObj(){
+	$('#login-form').animate({
+		'margin-left':'-=10px'
+	},50,function(){
+		$(this).animate({
+			'margin-left':'+=10px'
+		},50,function(){
+			vibObj();
+		}
+		).delay(330).stop().css('margin-left','+=10px');
+	});
+}
+	$("#sLogin").click(function(){
+		var id="ukey";
+		var password="2013";
+		var doc=document.forms[0];
+		var id2=doc.id.value;
+		var password2=doc.password.value;
+			
+		if(id==id2&&password==password2){
+			location.href = "/ukey/"; 
+		}else{
+			vibObj();
+		}
+	})
+	
+	
+</script>
+</html>
