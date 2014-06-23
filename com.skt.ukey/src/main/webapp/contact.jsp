@@ -57,7 +57,7 @@ function link(page){
 									<option>주민번호</option>
 								</select>
 							</div>
-							<input type="tel" maxlength="8" class="form-control"
+							<input type="tel"  class="form-control"
 								id="inputTel2" placeholder="12343456" value="<c:out value='${contact.phoneNumber}'/>"> <label for=""
 								class="control-label">기간</label> <input type="date"
 								class="form-control" /> <label for="" class="control-label">~</label>
@@ -265,13 +265,13 @@ function link(page){
 								<c:forEach var="item" items="${contact.details}" varStatus="status" begin="0" end="19">
 								<tr>
 									<td>${item.date}</td>
-									<td>서비스</td>
-									<td>부가서비스</td>
-									<td>온가족할인가입</td>
-									<td>부가요금제</td>
+									<td>${item.serviceType}</td>
+									<td>${item.changeType}</td>
+									<td>${item.reason}</td>
+									<td>${item.relatedChange}</td>
 									<td></td>
 									<td></td>
-									<td>TB끼리 결합 가족등록</td>
+									<td>${item.description}</td>
 								</tr>
 								</c:forEach>
 							</tbody>

@@ -82,8 +82,8 @@ function link(page){
 							</div>
 							<div class="form-group">
 								<label class="sr-only" for="inputTel2">telephone</label> <input
-									type="tel" maxlength="8" class="form-control" id="inputTel2"
-									placeholder="12343450" value='<c:out value="${customer.contactMain2nd}"/>'>
+									type="tel"  class="form-control" id="inputTel2"
+									placeholder="1234-3450" value='<c:out value="${customer.contactMain2nd}"/>'>
 							</div>
 							<button  class="btn btn-default" onclick="javascript:link('<c:url value="/container.jsp?url=customer" />')">
 								<span class="glyphicon glyphicon-search"></span>&nbsp;조&nbsp;회

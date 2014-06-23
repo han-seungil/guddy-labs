@@ -11,6 +11,7 @@
 		
 		this.search = function(){
 			$http.get('/ukey/customer.json').success(function(data){
+				ukey.info=[];
 				ukey.info = data;
 			});
 		};

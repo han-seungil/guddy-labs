@@ -8,8 +8,9 @@
 		ukey.info=[];
 		this.search = function(){
 			$http.get('/ukey/contactInfo.json').success(function(data){
+				ukey.info=[];
 				ukey.info = data;
-				console.log(data);
+				//console.log(data);
 			});
 		};
 	}]);
