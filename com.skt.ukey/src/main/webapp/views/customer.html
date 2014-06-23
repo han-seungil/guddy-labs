@@ -1,0 +1,341 @@
+<div id="ts" class="container-fluid" style="margin-left: 100px;" ng-controller="CustomerController as customer">
+				<p>
+					<span class="glyphicon glyphicon-bookmark"></span>&nbsp;고객정보
+				</p>
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<form class="form-inline" role="form"  >
+							<div class="form-group">
+								<label for="customer-type">구분&nbsp;&nbsp;</label> <select
+									class="form-control" >
+									<option>이동번화번호</option>
+									<option>주민번호</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label class="sr-only" for="inputTel1">telephone</label> <select
+									class="form-control" ng-model="customer.info.contactMain1st">
+									<option value="010" >010</option>
+									<option value="011" >011</option>
+									<option value="016" >016</option>
+									<option value="017" >017</option>
+									<option value="018" >018</option>
+									<option value="019" >019</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label class="sr-only" for="inputTel2">telephone</label> <input
+									type="tel" maxlength="8" class="form-control" 
+									placeholder="12343450" ng-model="customer.info.contactMain2nd">
+							</div>
+							<button class="btn btn-default" ng-click="customer.search()">
+								<span class="glyphicon glyphicon-search"></span>&nbsp;조&nbsp;회
+							</button>
+						</form>
+					</div>
+				</div>
+				<form class="form-horizontal" role="form">
+					<div class="panel panel-info">
+						<div class="panel-heading">
+							<span class="glyphicon glyphicon-tag"></span>&nbsp;기본정보
+						</div>
+						<div class="panel-body">
+							<div class="col-md-4"><!-- 1st Column -->
+								<div class="form-group">
+									<label for="changeid" class="col-md-4 control-label">변경유형</label>
+									<div class="col-md-8">
+										<select class="form-control" ng-model="customer.info.changeType">
+											<option >신규</option>
+											<option >기변</option>
+										</select>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="customer-name" class="col-md-4 control-label" >고객명</label>
+									<div class="col-md-4" style="padding-right:0px;">
+										<input type="text" class="form-control"  placeholder="(고객명)" ng-model="customer.info.name">
+									</div>
+									<div class="col-md-4" style="padding-left:0px;">
+										<div class="input-group" >
+											<span class="input-group-btn" >
+												<button class="btn btn-default" type="button" >실명</button>
+											</span><input type="text" class="form-control text-center"  placeholder="Y" style="padding:0px;margin:0px;"
+											ng-model="customer.info.realName">
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="customer-name" class="col-md-4 control-label" >연락번호1</label>
+									<div class="col-md-2" style="padding-right:0px;">
+										<select
+											class="form-control" ng-model="customer.info.contactMain1st">
+											<option value="010" >010</option>
+									<option value="011" >011</option>
+									<option value="016" >016</option>
+									<option value="017" >017</option>
+									<option value="018" >018</option>
+									<option value="019" >019</option>
+										</select>
+									</div>
+									<div class="col-md-6" style="padding-left:0px;">
+										<input type="text" class="form-control"  placeholder="전화번호" ng-model="customer.info.contactMain2nd">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="customer-name" class="col-md-4 control-label" >연락번호2</label>
+									<div class="col-md-2" style="padding-right:0px;">
+										<select
+											class="form-control" ng-model="customer.info.contactSub1st">
+											<option value="010" >010</option>
+									<option value="011" >011</option>
+									<option value="016" >016</option>
+									<option value="017" >017</option>
+									<option value="018" >018</option>
+									<option value="019" >019</option>
+										</select>
+									</div>
+									<div class="col-md-6" style="padding-left:0px;">
+										<input type="text" class="form-control"  placeholder="전화번호" ng-model="customer.info.contactSub2nd">
+									</div>
+								</div>
+							</div><!-- 1st Column -->
+							<div class="col-md-4"><!-- 2nd Column -->
+								<div class="form-group">
+									<label for="customer-type" class="col-md-4 control-label" >고객유형</label>
+									<div class="col-md-3" style="padding-right:0px;">
+										<select
+											class="form-control" ng-model="customer.info.customerType1st">
+											<option selected>개인</option>
+											<option>법인</option>
+										</select>
+									</div>
+									<div class="col-md-5" >
+										<select
+											class="form-control" ng-model="customer.info.customerType2nd">
+											<option selected>일반</option>
+											<option>임시</option>
+										</select>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="customer-type" class="col-md-4 control-label" >직업</label>
+									<div class="col-md-3" style="padding-right:0px;">
+										<select
+											class="form-control" ng-model="customer.info.occupation1st">
+											<option selected>회사원</option>
+											<option>학생</option>
+											<option>무직</option>
+										</select>
+									</div>
+									<div class="col-md-5" >
+										<select
+											class="form-control" ng-model="customer.info.occupation2nd">
+											<option selected>기술직</option>
+											<option>전문직</option>
+										</select>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="customer-type" class="col-md-4 control-label" >우편번호</label>
+									<div class="col-md-8" >
+										<div class="input-group" >
+											<input type="text" class="form-control text-center"  placeholder="000-000" ng-model="customer.info.zipCode">
+											<span class="input-group-btn" >
+												<button class="btn btn-default" type="button" >검색</button>
+											</span>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="customer-type" class="col-md-4 control-label" >주소</label>
+									<div class="col-md-8">
+										<input type="text" class="form-control"  placeholder="XX도 XX시 XX동" ng-model="customer.info.address" >
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-md-8 col-md-offset-4">
+										<input type="text" class="form-control"  placeholder="000-000번지" ng-model="customer.info.addressDetail">
+									</div>
+								</div>
+							</div><!-- 2nd Column -->
+							<div class="col-md-4"><!-- 3rd Column -->
+								<div class="form-group">
+									<label for="customer-type" class="col-md-4 control-label" >복지유형</label>
+									<div class="col-md-8">
+										<select class="form-control" ng-model="customer.info.benifit">
+											<option></option>
+											<option>A</option>
+											<option>B</option>
+										</select>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="customer-type" class="col-md-4 control-label" >해택정보</label>
+									<div class="col-md-8">
+										<input type="text" class="form-control"  placeholder="해택정보" >
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="customer-type" class="col-md-4 control-label" >보훈번호</label>
+									<div class="col-md-8">
+										<input type="text" class="form-control"  placeholder="123-00-9999" ng-model="customer.info.nationalCareNo">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="customer-type" class="col-md-4 control-label" >특수사업자</label>
+									<div class="col-md-8">
+										<input type="text" class="form-control"  placeholder="" ng-model="customer.info.specialLicense">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="customer-type" class="col-md-4 control-label" >체류자격</label>
+									<div class="col-md-8">
+										<input type="text" class="form-control"  placeholder="" ng-model="customer.info.residenceType">
+									</div>
+								</div>
+							</div><!-- 3rd Column -->
+						</div>
+					</div>
+			
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<ul id="payment-view" class="nav nav-tabs">
+								<li class="active"><a href="#detail-view" data-toggle="tab">상세정보</a></li>
+								<li><a href="#benifit-view" data-toggle="tab">복지해택정보</a></li>
+							</ul>
+							<div class="tab-content">
+							<div class="tab-pane active" id="detail-view" style="margin-top:10px;">
+								<div class="col-md-5"><!-- 1st Column -->
+									<div class="form-group">
+									<label for="customer-type" class="col-md-4 control-label" >생년월일</label>
+									<div class="col-md-8">
+									<div class="input-group" >
+										<span class="input-group-addon">
+        									<input type="radio" name="calendar" checked>양력
+        									<input type="radio" name="calendar">음력
+      									</span>
+      									<input type="date" class="form-control" ng-model="customer.info.birthday"/>
+									</div>
+									</div>
+									</div>
+									<div class="form-group">
+									<label for="customer-type" class="col-md-4 control-label" >취미</label>
+									<div class="col-md-8">
+									<div class="col-md-4">
+										<div class="input-group">
+										<input type="text" class="form-control" placeholder="오페라" ng-model="customer.info.hobby1st"/>
+										<span class="input-group-btn">
+        									<button class="btn" type="button" style="background-color:#DDD ">...</button>
+      									</span>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="input-group">
+										<input type="text" class="form-control" placeholder="음악감상" ng-model="customer.info.hobby2nd"/>
+										<span class="input-group-btn">
+        									<button class="btn btn-default" type="button" style="background-color:#DDD ">...</button>
+      									</span>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="input-group">
+										<input type="text" class="form-control" placeholder="스포츠" ng-model="customer.info.hobby3rd"/>
+										<span class="input-group-btn">
+        									<button class="btn btn-default" type="button" style="background-color:#DDD ">...</button>
+      									</span>
+										</div>
+									</div>
+										
+									</div>
+									</div>
+									<div class="form-group">
+									<label for="" class="col-md-4 control-label" >결혼기념일</label>
+									<div class="col-md-8" >
+										<div class="input-group" >
+											<input type="date" class="form-control text-center"  placeholder="" ng-model="customer.info.weddingAnniversary">
+											<span class="input-group-btn" >
+												<button class="btn btn-default" type="button" >추가등록</button>
+											</span>
+										</div>
+									</div>
+									</div>
+									<div class="form-group">
+									<label for="customer-type" class="col-md-4 control-label" >가입제한</label>
+									<div class="col-md-8">
+										<input type="text" class="form-control"  placeholder="" ng-model="customer.info.memberCondition">
+									</div>
+									</div>
+									<div class="form-group">
+									<label for="customer-type" class="col-md-4 control-label" >선호채널</label>
+									<div class="col-md-4" style="padding-right:0px;">
+										<select
+											class="form-control" ng-model="customer.info.channelA">
+											<option>A채널</option>
+											<option>B채널</option>
+											<option>C채널</option>
+										</select>
+									</div>
+									<div class="col-md-4" >
+										<select
+											class="form-control" ng-model="customer.info.channelB">
+											<option>A채널</option>
+											<option>B채널</option>
+											<option>C채널</option>
+										</select>
+									</div>
+									</div>
+								</div>
+								<div class="col-md-5"><!-- 2nd Column -->
+									<div class="form-group">
+									<label for="customer-type" class="col-md-4 control-label" >직장명</label>
+									<div class="col-md-8">
+										<input type="text" class="form-control"  placeholder="" ng-model="customer.info.workingPlace">
+									</div>
+									</div>
+									<div class="form-group">
+									<label for="customer-name" class="col-md-4 control-label" >직장연락번호</label>
+									<div class="col-md-2" style="padding-right:0px;">
+										<select
+											class="form-control" ng-model="customer.info.officePhone1st">
+											<option selected>02</option>
+											<option>070</option>
+											<option>032</option>
+										</select>
+									</div>
+									<div class="col-md-6" style="padding-left:0px;">
+										<input type="text" class="form-control"  placeholder="전화번호" ng-model="customer.info.officePhone2nd">
+									</div>
+									</div>
+									<div class="form-group">
+									<label for="customer-type" class="col-md-4 control-label" >우편번호</label>
+									<div class="col-md-8" >
+										<div class="input-group" >
+											<input type="text" class="form-control text-center"  placeholder="000-000" ng-model="customer.info.officeZipCode">
+											<span class="input-group-btn" >
+												<button class="btn btn-default" type="button" >검색</button>
+											</span>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="customer-type" class="col-md-4 control-label" >직장주소</label>
+									<div class="col-md-8">
+										<input type="text" class="form-control"  placeholder="XX도 XX시 XX동" ng-model="customer.info.officeAddress">
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-md-8 col-md-offset-4">
+										<input type="text" class="form-control"  placeholder="000-000번지" ng-model="customer.info.addressDetail">
+									</div>
+								</div>
+								</div>
+							</div>
+							<div class="tab-pane" id="benifit-view">복지</div>
+						</div>
+						</div>
+						
+					</div>
+			</form>
+
+		</div>
+
