@@ -27,8 +27,11 @@ function link(page){
 			</div>
 			<nav>
 				<ul class="nav nav-tabs" style="margin-top: 8px;">
-					<li><a href="javascript:link('<c:url value="/container.jsp?url=customer" />')">고객정보</a></li>
-					<li class="active"><a href="javascript:link('<c:url value="/container.jsp?url=contact" />')">접촉이력</a></li>
+					<li ><a href="javascript:link('<c:url value="/container.jsp?url=customer" />')">고객정보(T)</a></li>
+					<li class="active"><a href="javascript:link('<c:url value="/container.jsp?url=contact" />')">접촉이력(T)</a></li>
+					<li><a href="javascript:link('/ukey/customer');">고객정보(S)</a></li>
+					<li><a href="javascript:link('/ukey/contact');">접촉이력(S)</a></li>
+					<li><a href="javascript:link('/ukey#/customer.html');">Client</a></li>
 				</ul>
 			</nav>
 			<!--#include virtual = "/include/main_sysSet.asp"-->
@@ -46,7 +49,7 @@ function link(page){
 				</p>
 				<div class="panel panel-primary">
 					<div class="panel-heading">
-						<form class="form-inline" role="form" action="<c:url value="/" />">
+						<form class="form-inline" role="form" >
 							<div class="form-group">
 								<label for="customer-type">구분&nbsp;&nbsp;</label> <select
 									class="form-control" id="customer-type">
@@ -59,7 +62,7 @@ function link(page){
 								class="control-label">기간</label> <input type="date"
 								class="form-control" /> <label for="" class="control-label">~</label>
 							<input type="date" class="form-control" />
-							<button type="submit" class="btn btn-default">
+							<button  class="btn btn-default" onclick="javascript:link('<c:url value="/container.jsp?url=contact" />')">
 								<span class="glyphicon glyphicon-search"></span>&nbsp;조&nbsp;회
 							</button>
 						</form>

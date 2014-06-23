@@ -33,12 +33,12 @@ public class HomeController {
 		Customer customer = new Customer();
 
 		model.addAttribute("customer", customer);
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		try {
+//			Thread.sleep(1000);
+//		} catch (InterruptedException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		model.addAttribute("url", "main.jsp");
 		return "redirect:customer";
 	}
@@ -49,12 +49,12 @@ public class HomeController {
 		Customer customer = new Customer();
 
 		model.addAttribute("customer", customer);
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		try {
+//			Thread.sleep(1000);
+//		} catch (InterruptedException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		model.addAttribute("url", "main.jsp");
 		return "main";
 	}
@@ -67,12 +67,12 @@ public class HomeController {
 		for (int i = 0; i < 5000; i++) {
 			contact.getDetails().add(new ContactInfoDetail());
 		}
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		try {
+//			Thread.sleep(1000);
+//		} catch (InterruptedException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		model.addAttribute("contact", contact);
 		
 		return "contact";
@@ -86,23 +86,41 @@ public class HomeController {
 		for (int i = 0; i < 5000; i++) {
 			contact.getDetails().add(new ContactInfoDetail());
 		}
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		try {
+//			Thread.sleep(1000);
+//		} catch (InterruptedException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		model.addAttribute("contact", contact);
 		return "contact";
 	}
 
-	@RequestMapping(value = "/json", method = RequestMethod.GET)
-	public @ResponseBody Customer json() {
-		logger.info("'/json' Requested");
+	@RequestMapping(value = "/customer.json", method = RequestMethod.GET)
+	public @ResponseBody Customer customerJson() {
+		logger.info("'/customer.json' Requested");
 
 		Customer customer = new Customer();
 
 		return customer;
+	}
+	@RequestMapping(value = "/contactInfo.json", method = RequestMethod.GET)
+	public @ResponseBody ContactInfo contactInfoJson() {
+		logger.info("'/contactInfo.json' Requested");
+
+		ContactInfo contact = new ContactInfo();
+		for (int i = 0; i < 5000; i++) {
+			contact.getDetails().add(new ContactInfoDetail());
+		}
+//		try {
+//			Thread.sleep(1000);
+//		} catch (InterruptedException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+		
+		
+		return contact;
 	}
 
 }

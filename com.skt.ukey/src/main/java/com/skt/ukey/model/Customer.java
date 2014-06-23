@@ -47,7 +47,7 @@ public class Customer implements Serializable {
 		benifit = "A";
 		nationalCareNo="없음";
 		specialLicense=Integer.toString(random.nextInt(200))+"-"+Integer.toString(random.nextInt(9999));
-		registanceType="내국인";
+		residenceType="내국인";
 		
 		birthday=String.format("1990-%02d-%02d",random.nextInt(12), random.nextInt(30));
 		hobby1st="오페라";
@@ -91,7 +91,7 @@ public class Customer implements Serializable {
 	String benifit;
 	String nationalCareNo;
 	String specialLicense;
-	String registanceType;
+	String residenceType;
 	
 	String birthday;
 	String hobby1st;
@@ -212,11 +212,11 @@ public class Customer implements Serializable {
 	public void setSpecialLicense(String specialLicense) {
 		this.specialLicense = specialLicense;
 	}
-	public String getRegistanceType() {
-		return registanceType;
+	public String getResidenceType() {
+		return residenceType;
 	}
-	public void setRegistanceType(String registanceType) {
-		this.registanceType = registanceType;
+	public void setResidenceType(String residenceType) {
+		this.residenceType = residenceType;
 	}
 	public String getBirthday() {
 		return birthday;

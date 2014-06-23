@@ -45,7 +45,7 @@ function autoResize(id){
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-	<iframe src="<c:out value='${param.url}'/>" style="width:100%;" height="200px" id="iframe1" marginheight="0" frameborder="0" onLoad="autoResize('iframe1');"></iframe>
+	<iframe src="<c:out value='${param.url}'/>" style="width:100%;" height="1000px" id="iframe1" marginheight="0" frameborder="0" onLoad="autoResize('iframe1');"></iframe>
 	<script src="<c:url value="js/vendor/jquery-1.10.2.min.js" />"></script>
 	<script src="<c:url value="js/plugins.js" />"></script>
 	<script src="<c:url value="js/main.js" />"></script>

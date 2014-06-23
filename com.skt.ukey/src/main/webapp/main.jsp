@@ -27,9 +27,11 @@ function link(page){
 			</div>
 			<nav>
 				<ul class="nav nav-tabs" style="margin-top: 8px;">
-					<li class="active"><a href="javascript:link('<c:url value="/container.jsp?url=customer" />')">고객정보</a></li>
-					<li ><a href="javascript:link('<c:url value="/container.jsp?url=contact" />')">접촉이력</a></li>
-					<li><a href="<c:url value="/test" />">test</a></li>
+					<li class="active"><a href="javascript:link('<c:url value="/container.jsp?url=customer" />')">고객정보(T)</a></li>
+					<li><a href="javascript:link('<c:url value="/container.jsp?url=contact" />')">접촉이력(T)</a></li>
+					<li><a href="javascript:link('/ukey/customer');">고객정보(S)</a></li>
+					<li><a href="javascript:link('/ukey/contact');">접촉이력(S)</a></li>
+					<li><a href="javascript:link('/ukey#/customer.html');">Client</a></li>
 				</ul>
 			</nav>
 			<!--#include virtual = "/include/main_sysSet.asp"-->
@@ -37,7 +39,7 @@ function link(page){
 		</header>
 		<!--end of document header-->
 
-		<div id="container">
+		<div id="container" >
 			<!--#include virtual = "/include/main_search.asp"-->
 			<%@ include file="include/main_search.jsp"%>
 
@@ -47,7 +49,7 @@ function link(page){
 				</p>
 				<div class="panel panel-primary">
 					<div class="panel-heading">
-						<form class="form-inline" role="form" action="<c:url value="/" />">
+						<form class="form-inline" role="form" >
 							<div class="form-group">
 								<label for="customer-type">구분&nbsp;&nbsp;</label> <select
 									class="form-control" id="customer-type">
@@ -83,7 +85,7 @@ function link(page){
 									type="tel" maxlength="8" class="form-control" id="inputTel2"
 									placeholder="12343450" value='<c:out value="${customer.contactMain2nd}"/>'>
 							</div>
-							<button type="submit" class="btn btn-default">
+							<button  class="btn btn-default" onclick="javascript:link('<c:url value="/container.jsp?url=customer" />')">
 								<span class="glyphicon glyphicon-search"></span>&nbsp;조&nbsp;회
 							</button>
 						</form>
@@ -272,7 +274,7 @@ function link(page){
 								<div class="form-group">
 									<label for="customer-type" class="col-md-4 control-label" >체류자격</label>
 									<div class="col-md-8">
-										<input type="text" class="form-control"  placeholder="" value="<c:out value='${customer.registanceType}'/>">
+										<input type="text" class="form-control"  placeholder="" value="<c:out value='${customer.residenceType}'/>">
 									</div>
 								</div>
 							</div><!-- 3rd Column -->
@@ -418,31 +420,31 @@ function link(page){
 						
 					</div>
 			</form>
-
+		<div style="height:200px;"></div>
+			<!--#include virtual = "/include/main_lnb.asp"-->
+			<%@ include file="include/main_lnb.jsp"%>
+		</div>		
 		</div>
-<div style="height:200px;"></div>
-		<!--#include virtual = "/include/main_lnb.asp"-->
-		<%@ include file="include/main_lnb.jsp"%>
-	</div>
 	<footer class="footer">
-		<div class="pageNav">
-			<img class="btn_temp" src="imgs/main/btn_arrowLeft.png" /><img
-				src="imgs/main/btn_arrowRight.png" />
-		</div>
-		<nav>
-			<ul>
-				<li><a href="main01_01.asp"><img
-						src="imgs/main/icon_document_01_01_on.png" /></a></li>
-				<li><a href="main01_02.asp"><img
-						src="imgs/main/icon_document_01_02_off.png" /></a></li>
-				<li><a href="main01_03.asp"><img
-						src="imgs/main/icon_document_01_03_off.png" /></a></li>
-			</ul>
-		</nav>
-		<div class="recently">
-			<img src="imgs/main/icon_document_recently.png" />
-		</div>
-	</footer>
+			<div class="pageNav">
+				<img class="btn_temp" src="imgs/main/btn_arrowLeft.png" /><img
+					src="imgs/main/btn_arrowRight.png" />
+			</div>
+			<nav>
+				<ul>
+					<li><a href="main01_01.asp"><img
+							src="imgs/main/icon_document_01_01_on.png" /></a></li>
+					<li><a href="main01_02.asp"><img
+							src="imgs/main/icon_document_01_02_off.png" /></a></li>
+					<li><a href="main01_03.asp"><img
+							src="imgs/main/icon_document_01_03_off.png" /></a></li>
+				</ul>
+			</nav>
+			<div class="recently">
+				<img src="imgs/main/icon_document_recently.png" />
+			</div>
+		</footer>
+	
 	<!--end of footer-->
 	</div>
 	<!--#include virtual = "/include/main_commonElement.asp"-->

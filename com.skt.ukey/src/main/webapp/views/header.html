@@ -1,17 +1,22 @@
-<div class="logo">
+<div class="logo" >
     <img src="imgs/logo.png" />
 </div>
-<nav>
+<nav ng-controller="MainController as mainCtrl">
     <ul class="nav nav-tabs" style="margin-top: 8px;">
-        <li>
-            <a href="javascript:link('/ukey/container.jsp?url=customer')">고객정보</a>
+        <li ng-class="mainCtrl.isSelected('customer.html')">
+            <a href="#customer.html" ng-click="mainCtrl.selectMenu(1)">고객정보(C)</a>
         </li>
-        <li class="active">
-            <a href="javascript:link('/ukey/container.jsp?url=contact')">접촉이력</a>
+        <li ng-class="mainCtrl.isSelected('contact.html')">
+            <a href="#contact.html" ng-click="mainCtrl.selectMenu(2)">접촉이력(C)</a>
+        </li>
+        <li >
+            <a href="/ukey/container.jsp?url=customer">Tworld</a>
+        </li>
+        <li >
+            <a href="/ukey/customer">Server</a>
         </li>
     </ul>
 </nav>
-<!--#include virtual = "/include/main_sysSet.asp"-->
 <div class="sysSet">
     <ul class="sysControl">
         <li>
