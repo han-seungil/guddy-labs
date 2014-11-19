@@ -1,0 +1,2 @@
+serviceClass: com.easyraon.johnjs.client.GreetingService
+path: 794275209BBF2C749B73763550476574.gwt.rpc
