@@ -17,7 +17,7 @@
 	    
 	    this.isSelected=function(checkMenu){
 	    	var currentRoute = $location.path().substring(1)||'customer.html';
-	    	//console.log(currentRoute);
+	    	console.log(currentRoute?'active':'');
 	    	return checkMenu === currentRoute?'active':'';
 	    };
 	    this.selectMenu = function(selectMenu){

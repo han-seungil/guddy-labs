@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko" ng-app="msid">
+<head>
+<meta charset="UTF-8">
+<title>빠르고 간편한 T-Banking !</title>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet"
+	href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet"
+	href="bower_components/bootstrap/dist/css/bootstrap-theme.css" />
+
+</head>
+<body style="padding-top:60px">   
+	<nav class="navbar navbar-default navbar-fixed-top" >
+        <div class="container-fluid" style="padding-right:30px">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#"><img alt="T-Bank" src="img/logo.png" height="30px"></a>
+            </div>
+            <button type="button" class="btn btn-default navbar-btn navbar-right">Sign in</button>
+            </div>
+	</nav>
+    <div class="container-fluid" ng-controller="MainController as main">
+        <ol class="breadcrumb">
+          <li><a href="#">Home</a></li>
+          <li><a href="#personal.html">개인</a></li>
+          <li class="active"><a href="#transfer.html">이체</a></li>
+        </ol>
+        
+        <div ng-view ></div>
+    </div>
+    
+	<!-- Javascript Framework  -->
+	<script src="bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="bower_components/angular/angular.min.js"></script>
+	<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="bower_components/angular-route/angular-route.min.js"></script>
+
+	<!-- Application -->
+	<script src="script/app.js"></script>
+	<!-- controller location -->
+
+
+	
+</body>
+</html>
