@@ -2,7 +2,7 @@
     var app = angular.module("msid",["ngRoute"]);
     app.config(function($routeProvider){
 		$routeProvider
-	    .when('/login.html',{
+	     .when('/login.html',{
 	        templateUrl : 'view/login.html',
 	        controller : 'LoginController'
 	    })
@@ -13,7 +13,9 @@
 	    .when('/personal.html',{
 	        templateUrl : 'view/personal.html',
 	        controller : 'PersonalController'
-	    });
+	    })
+	    .otherwise({redirectTo:'/login.html'}
+	    		);
 	}
 	);
     
