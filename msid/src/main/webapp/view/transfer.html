@@ -1,1 +1,137 @@
-transfer
+<div class="panel panel-primary"
+	ng-controller="TransferController as transfer">
+	<div class="panel-heading">이체/송금 서비스</div>
+	<div class="panel-body">
+		<div class="alert alert-info" role="alert">모바일 간편이체시 수수료가
+			면제(~2015.12.31)</div>
+		<form class="form-horizontal">
+			<div class="form-group">
+				<label for="source" class="col-xs-2 control-label">출금계좌</label>
+				<div class="col-xs-10">
+					<select class="form-control" id="source">
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="password" class="col-xs-2 control-label">비밀번호</label>
+				<div class="col-xs-10">
+					<input type="password" class="form-control" id="password"
+						placeholder="Password">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="amount" class="col-xs-2 control-label">이체금액</label>
+				<div class="col-xs-10">
+					<div class="input-group">
+						<input type="text" class="form-control text-right" id="amount"
+							value="0"><span class="input-group-addon">원</span>
+					</div>
+					<div class="btn-group btn-group-justified " role="group"
+						aria-label="...">
+						<div class="btn-group " role="group">
+							<button type="button" class="btn btn-link">+100만원</button>
+						</div>
+						<div class="btn-group" role="group">
+							<button type="button" class="btn btn-link">+50만원</button>
+						</div>
+						<div class="btn-group" role="group">
+							<button type="button" class="btn btn-link">+10만원</button>
+						</div>
+						<div class="btn-group" role="group">
+							<button type="button" class="btn btn-link">+5만원</button>
+						</div>
+						<div class="btn-group" role="group">
+							<button type="button" class="btn btn-link">+1만원</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<p class="text-center" style="margin-bottom: 0px">
+					<span class="glyphicon glyphicon-chevron-down text-center"
+						aria-hidden="true"></span>
+				</p>
+			</div>
+			<div class="form-group">
+				<label for="target" class="col-xs-2 control-label">입금계좌</label>
+				<div class="col-xs-10">
+					<div class="input-group">
+						<input type="text" class="form-control" id="target"
+							autocomplete="on"> <span class="input-group-btn">
+							<button class="btn btn-primary" type="button"
+								id="simpleTransfer1" data-toggle="modal" data-target="#transferModal">간편이체</button>
+						</span>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-xs-12">
+					<div style="height: 1px; background-color: #BBBBBB"></div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="target" class="col-xs-2 control-label">휴대전화</label>
+				<div class="col-xs-10">
+					<div class="input-group">
+						<input type="text" class="form-control" id="target"
+							value="010-0000-0000"> <span class="input-group-btn">
+							<button class="btn btn-default" type="button">번호변경</button>
+						</span>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-xs-offset-2 col-xs-10">
+					<div class="btn-group btn-group-justified " role="group"
+						aria-label="...">
+						<div class="btn-group " role="group">
+							<button type="button" class="btn btn-default">취소</button>
+						</div>
+						<div class="btn-group" role="group">
+							<button type="button" class="btn btn-default">이체</button>
+						</div>
+						<div class="btn-group" role="group">
+							<button type="button" class="btn btn-primary"
+								id="simpleTransfer2" data-toggle="modal" data-target="#transferModal">간편이체</button>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="modal fade" id="transferModal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title">이체 실행</h4>
+				</div>
+				<div class="modal-body">
+					<div class="alert alert-danger" role="alert">
+					홍길동님의 XX은행
+Xxxx-OOOOOO_XXXXX
+50만원 이체 처리 합니다.
+휴대전화 인증 요청 중
+					</div>
+					<div id="timer" style=""></div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+					<button type="button" class="btn btn-primary">이체</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+	<!-- /.modal -->
+</div>

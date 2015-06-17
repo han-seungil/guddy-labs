@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>PieTimer example</title>
+
+<link rel="stylesheet" type="text/css" href="css/pietimer.css">
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.pietimer.js"></script>
+<script type="text/javascript">
+    $(function() {
+      $('#timer').pietimer({
+          timerSeconds: 10,
+          color: '#234',
+          fill: false,
+          showPercentage: true,
+          callback: function() {
+              alert("yahoo, timer is done!");
+              $('#timer').pietimer('reset');
+          }
+      });
+    });
+  </script>
+</head>
+<body>
+<div id="menu">
+<div class="w">
+<a href="http://www.jqueryscript.net/loading/Graphical-Circular-Timer-with-jQuery-CSS3-pietimer.html">Download</a> - <a href="http://www.jqueryscript.net/">Back To jQueryScript.Net</a></div>
+</div>
+<div id="timer" style="margin-top:100px;"></div>
+
+
+</body>
+</html>

@@ -8,7 +8,7 @@
 	    })
 	    .when('/transfer.html',{
 	        templateUrl : 'view/transfer.html',
-	        controller : 'transferController'
+	        controller : 'TransferController'
 	    })
 	    .when('/personal.html',{
 	        templateUrl : 'view/personal.html',
@@ -29,6 +29,16 @@
     	
     });
     app.controller("TransferController",function($scope){
-    	
+    	$('#amount').maskMoney({prefix:'￦ ', allowNegative: false, thousands:',', decimal:',',precision:0, affixesStay: true});
+    	 $('#timer').pietimer({
+             timerSeconds: 300,
+             color: '#234',
+             fill: false,
+             showPercentage: true,
+             callback: function() {
+                 alert("yahoo, timer is done!");
+                 $('#timer').pietimer('reset');
+             }
+         });
     });
 })();
