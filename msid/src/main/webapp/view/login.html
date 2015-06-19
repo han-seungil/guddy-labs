@@ -1,42 +1,80 @@
-<div class="container" ng-controller="LoginController as login">
-	<div class="well bs-component">
-		<form>
-			<div class="form-group has-feedback">
-				<label class="control-label" for="username">User Name</label> <input
-					type="text" class="form-control" id="username"
-					placeholder="Username" /> <i
-					class="form-control-feedback glyphicon glyphicon-user"></i>
-			</div>
-			<div class="form-group  has-feedback">
-				<label for="password">Password</label> <input type="password"
-					class="form-control" id="password" placeholder="Password">
-				<i class="form-control-feedback glyphicon glyphicon-lock"></i>
-			</div>
-			<div class="form-group  has-feedback">
-				<label for="passcode">OTP</label>
-				 <div class="input-group"><input type="text"
-					class="form-control" placeholder="Search for..."> <span
-					class="input-group-btn">
-					<button class="btn btn-default" type="button">Confirm</button>
-				</span></div>
-			</div>
-			<div class="form-group">
-				<button type="submit" class="btn btn-primary btn-block">Sign
-					with MSID</button>
-			</div>
-		</form>
-		<div class="container">
-			<div class="row">
-				<div class="col-xs-6">
-					<button type="submit" class="btn btn-link btn-block">Forgot
-						password?</button>
-				</div>
-				<div class="col-xs-6">
-					<button type="submit" class="btn btn-link btn-block">Registration</button>
-				</div>
+
+<div class="well bs-component" ng-controller="LoginController as login" ng-init="login.init()">
+	<form>
+		<div class="form-group has-feedback">
+			<label class="control-label" for="username">아이디/이메일</label> <input
+				type="text" class="form-control" id="username" placeholder="아이디/이메일(fintech@sk.com)"
+				ng-model="login.user.userId" /> <i
+				class="form-control-feedback glyphicon glyphicon-user"></i>
+			<div class="alert alert-danger" role="alert" style="margin-top:5px" ng-show="login.msgID">
+				<span class="glyphicon glyphicon-exclamation-sign"
+					aria-hidden="true"></span> <span class="sr-only">Error:</span>
+				사용자를 찾을 수 없습니다.
 			</div>
 		</div>
-
+		<div class="form-group  has-feedback">
+			<label for="password">암호</label> <input type="password"
+				class="form-control" id="password" placeholder="6자리 이상(1234qwer)"
+				ng-model="login.user.password" /> <i
+				class="form-control-feedback glyphicon glyphicon-lock"></i>
+				<div class="alert alert-danger" role="alert" style="margin-top:5px" ng-show="login.msgPassword">
+				<span class="glyphicon glyphicon-exclamation-sign"
+					aria-hidden="true"></span> <span class="sr-only">Error:</span>
+				암호를 잘못 입력했습니다.
+			</div>
+		</div>
+		<div class="form-group">
+			<button type="submit" class="btn btn-primary btn-block"
+				ng-click="login.submit(login.user)">
+				Sign in with MSID&nbsp;<span class="glyphicon glyphicon-phone"
+					aria-hidden="true"></span>
+			</button>
+		</div>
+	</form>
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-6">
+				<button type="submit" class="btn btn-link btn-block">Forgot
+					password?</button>
+			</div>
+			<div class="col-xs-6">
+				<button type="submit" class="btn btn-link btn-block">Registration</button>
+			</div>
+		</div>
 	</div>
-
+	<div class="modal fade" id="otpModal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title">OTP Passcode 입력</h4>
+				</div>
+				<div class="modal-body">
+					<div class="alert alert-info" role="alert">
+						<p>{{login.userName}}님 {{login.phoneNumber}}에 OTP전송 했습니다.</p>
+						<p>휴대폰에 OTP를 확인하시고 입력해주세요</p>
+					</div>
+					<div class="center-block">
+						<div id="countdown"></div>
+					</div>
+					<input type="text" class="form-control text-center" id="otp"
+						placeholder="OTP 번호(1234)" ng-model="login.otp">
+						<div class="alert alert-danger" role="alert" style="margin-top:5px" ng-show="login.msgOTP">
+				<span class="glyphicon glyphicon-exclamation-sign"
+					aria-hidden="true"></span> <span class="sr-only">Error:</span>
+				OTP번호를 잘못 입력했습니다.
+			</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+					<button  id="otpSubmit"  type="button" class="btn btn-primary" ng-click="login.submitOTP(login.otp)"disabled="disabled">Sign in</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
 </div>

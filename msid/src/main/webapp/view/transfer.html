@@ -64,7 +64,8 @@
 						<input type="text" class="form-control" id="target"
 							autocomplete="on"> <span class="input-group-btn">
 							<button class="btn btn-primary" type="button"
-								id="simpleTransfer1" data-toggle="modal" data-target="#transferModal">간편이체</button>
+								id="simpleTransfer1" data-toggle="modal"
+								data-target="#transferModal">간편이체</button>
 						</span>
 					</div>
 				</div>
@@ -97,7 +98,8 @@
 						</div>
 						<div class="btn-group" role="group">
 							<button type="button" class="btn btn-primary"
-								id="simpleTransfer2" data-toggle="modal" data-target="#transferModal">간편이체</button>
+								id="simpleTransfer2" data-toggle="modal"
+								data-target="#transferModal">간편이체</button>
 						</div>
 
 					</div>
@@ -116,13 +118,14 @@
 					<h4 class="modal-title">이체 실행</h4>
 				</div>
 				<div class="modal-body">
-					<div class="alert alert-danger" role="alert">
-					홍길동님의 XX은행
-Xxxx-OOOOOO_XXXXX
-50만원 이체 처리 합니다.
-휴대전화 인증 요청 중
-					</div>
-					<div id="timer" style=""></div>
+					<div class="alert alert-danger" role="alert"><p>홍길동님의 XX은행
+						Xxxx-OOOOOO_XXXXX 50만원 이체 처리 합니다.</p>
+						<p>휴대폰에 공인인증서 암호를 입력해주세요</p>
+						</div>
+						<div class="center-block">
+					<div id="countdown"></div></div>
+					<input type="text" class="form-control text-center" id="otp"
+									placeholder="OTP 번호">
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
@@ -135,3 +138,23 @@ Xxxx-OOOOOO_XXXXX
 	</div>
 	<!-- /.modal -->
 </div>
+<script>
+	var note = $('#note'), ts = new Date(2012, 0, 1), newYear = true;
+
+	if ((new Date()) > ts) {
+		// The new year is here! Count towards something else.
+		// Notice the *1000 at the end - time must be in milliseconds
+		ts = (new Date()).getTime() + 5 * 60 * 1000;
+		newYear = false;
+	}
+
+	$('#countdown')
+			.countdown(
+					{
+						timestamp : ts,
+						callback : function(days, hours, minutes, seconds) {
+
+							
+						}
+					});
+</script>
