@@ -4,13 +4,15 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
 
+import org.springframework.stereotype.Component;
 
+@Component
 public class UserInfo implements Serializable {
 	private static final long serialVersionUID = -8879061222605561147L;
 	
 	public UserInfo(){
 		this.accontList = new ArrayList<AccountInfo>();
-		
+		this.name="init";
 		Random random = new Random();
 		
 		AccountInfo account = new AccountInfo();
@@ -66,6 +68,14 @@ public class UserInfo implements Serializable {
 	}
 	public String getMessage(){
 		return this.message;
+	}
+	public void clear() {
+		this.id="";
+		this.password="";
+		this.name="";
+		this.phoneNumber="";
+		this.accontList.clear();
+		
 	}
 	
 }
