@@ -44,7 +44,7 @@
 							return;
 							}
 						$("#otpModal").modal('hide');
-						$location.path("/personal.html");
+						$location.path("/personal");
 						$(".modal-backdrop").remove();
 					});
 					
