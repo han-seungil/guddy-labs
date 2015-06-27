@@ -1,3 +1,4 @@
+//login controller
 (function() {
 	var app = angular.module('login-module', []);
 	app.controller("LoginController", [

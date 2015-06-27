@@ -1,3 +1,4 @@
+//transfer controller
 (function(){
 	var app = angular.module('transfer-module',[]);
 	app.controller("TransferController",function($routeParams){

@@ -1,3 +1,4 @@
+//person controller
 (function() {
 	var app = angular.module('person-module', []);
 	app.controller("PersonController",['$http','$location', function($http,$location) {
