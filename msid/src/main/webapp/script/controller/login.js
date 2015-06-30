@@ -1,3 +1,4 @@
+//login controller
 (function() {
 	var app = angular.module('login-module', []);
 	app.controller("LoginController", [
@@ -44,7 +45,7 @@
 							return;
 							}
 						$("#otpModal").modal('hide');
-						$location.path("/personal.html");
+						$location.path("/personal");
 						$(".modal-backdrop").remove();
 					});
 					

@@ -1,45 +1,27 @@
-<div ng-controller="PersonController as person">
+<!-- 조회 처리 -->
+<div ng-controller="PersonController as person" ng-init="person.init()">
 	<div class="panel panel-primary">
 		<div class="panel-heading">예금 계좌 조회</div>
-		<div class="panel-body">
+		<div class="panel-body" ng-repeat="account in person.accountList">
 			<div class="row">
 				<div class="col-xs-6">
-					<span>133-09230940-980</span>
+					<span>{{account.accountNumber}}</span>
+					<div class="btn-group" role="group" aria-label="...">
+						<button type="button" class="btn btn-link">거래내역</button>
+						<button type="button" class="btn btn-link" ng-click="person.transfer(account)">이 체</button>
+						<button type="button" class="btn btn-link">상세보기</button>
+					</div>
 				</div>
 				<div class="col-xs-6">
-					<span class="pull-right">급여</span><br> <span
-						class="pull-right">1,000,000원</span>
+					<span class="pull-right">{{account.aliasName}}</span><br> <span
+						class="pull-right">{{account.balance | currency :'￦ ': 0
+						}}원</span>
 				</div>
-			</div>
-			<div class="row">
-				<p class="text-center" style="margin-bottom: 0px">
-					<span class="glyphicon glyphicon-chevron-down text-center"
-						aria-hidden="true"></span>
-				</p>
 			</div>
 			<div class="row center-block">
 				<div
 					style="height: 1px; background-color: #BBBBBB; margin-bottom: 20px"></div>
 			</div>
-			<div class="row">
-				<div class="col-xs-6">
-					<span>433-092756940-180</span>
-				</div>
-				<div class="col-xs-6">
-					<span class="pull-right">재테크</span><br> <span
-						class="pull-right">56,000,000원</span>
-				</div>
-			</div>
-			<div class="row">
-				<p class="text-center" style="margin-bottom: 0px">
-					<span class="glyphicon glyphicon-chevron-down text-center"
-						aria-hidden="true"></span>
-				</p>
-			</div>
-			<div class="row center-block">
-				<div style="height: 1px; background-color: #BBBBBB"></div>
-			</div>
-
 		</div>
 	</div>
 	<div class="row">
