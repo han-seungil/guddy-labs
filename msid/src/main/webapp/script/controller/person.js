@@ -12,7 +12,6 @@
 			});
 		};
 		this.transfer=function(account){
-			alert(account.accountNumber);
 			$location.path("/transfer/"+account.accountNumber+"/phone/"+that.phone);
 		}
 	}]);

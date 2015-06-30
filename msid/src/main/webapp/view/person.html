@@ -2,26 +2,30 @@
 <div ng-controller="PersonController as person" ng-init="person.init()">
 	<div class="panel panel-primary">
 		<div class="panel-heading">예금 계좌 조회</div>
-		<div class="panel-body" ng-repeat="account in person.accountList">
-			<div class="row">
-				<div class="col-xs-6">
-					<span>{{account.accountNumber}}</span>
-					<div class="btn-group" role="group" aria-label="...">
-						<button type="button" class="btn btn-link">거래내역</button>
-						<button type="button" class="btn btn-link" ng-click="person.transfer(account)">이 체</button>
-						<button type="button" class="btn btn-link">상세보기</button>
+		<div class="panel-body">
+			<div ng-repeat="account in person.accountList">
+				<div class="row">
+					<div class="col-xs-6">
+						<span>{{account.accountNumber}}</span>
+						<div class="btn-group" role="group" aria-label="...">
+							<button type="button" class="btn btn-link">거래내역</button>
+							<button type="button" class="btn btn-link"
+								ng-click="person.transfer(account)">이 체</button>
+							<button type="button" class="btn btn-link">상세보기</button>
+						</div>
+					</div>
+					<div class="col-xs-6">
+						<span class="pull-right">{{account.aliasName}}</span><br> <span
+							class="pull-right">{{account.balance | currency :'￦ ': 0
+							}}원</span>
 					</div>
 				</div>
-				<div class="col-xs-6">
-					<span class="pull-right">{{account.aliasName}}</span><br> <span
-						class="pull-right">{{account.balance | currency :'￦ ': 0
-						}}원</span>
+				<div class="row center-block">
+					<div
+						style="height: 1px; background-color: #BBBBBB; margin-bottom: 20px"></div>
 				</div>
 			</div>
-			<div class="row center-block">
-				<div
-					style="height: 1px; background-color: #BBBBBB; margin-bottom: 20px"></div>
-			</div>
+
 		</div>
 	</div>
 	<div class="row">

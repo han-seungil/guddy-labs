@@ -1,6 +1,7 @@
 <!-- 송금 준비 -->
 <div class="panel panel-primary"
-	ng-controller="TransferController as transfer">
+	ng-controller="TransferController as transfer"
+	ng-init="transfer.init()">
 	<div class="panel-heading">이체/송금 서비스</div>
 	<div class="panel-body">
 		<div class="alert alert-info" role="alert">모바일 간편이체시 수수료가
@@ -9,12 +10,10 @@
 			<div class="form-group">
 				<label for="source" class="col-xs-2 control-label">출금계좌</label>
 				<div class="col-xs-10">
-					<select class="form-control" id="source">
-						<option>1</option>
-						<option>2</option>
-						<option>3</option>
-						<option>4</option>
-						<option>5</option>
+					<select class="form-control" id="source"
+						ng-model="transfer.sourceAccount" name="name"
+						ng-options="account.accountNumber for account in transfer.accountList">
+
 					</select>
 				</div>
 			</div>
@@ -30,24 +29,27 @@
 				<div class="col-xs-10">
 					<div class="input-group">
 						<input type="text" class="form-control text-right" id="amount"
-							value="0"><span class="input-group-addon">원</span>
+							ng-model="transfer.amount| currency : '￦' :0"><span class="input-group-addon">원</span>
 					</div>
 					<div class="btn-group btn-group-justified " role="group"
 						aria-label="...">
 						<div class="btn-group " role="group">
-							<button type="button" class="btn btn-link">+100만원</button>
+							<button type="button" class="btn btn-link" ng-click="transfer.amount=transfer.amount+1000000">+100만원</button>
 						</div>
 						<div class="btn-group" role="group">
-							<button type="button" class="btn btn-link">+50만원</button>
+							<button type="button" class="btn btn-link" ng-click="transfer.amount=transfer.amount+500000">+50만원</button>
 						</div>
 						<div class="btn-group" role="group">
-							<button type="button" class="btn btn-link">+10만원</button>
+							<button type="button" class="btn btn-link" ng-click="transfer.amount=transfer.amount+100000">+10만원</button>
 						</div>
 						<div class="btn-group" role="group">
-							<button type="button" class="btn btn-link">+5만원</button>
+							<button type="button" class="btn btn-link" ng-click="transfer.amount=transfer.amount+50000">+5만원</button>
 						</div>
 						<div class="btn-group" role="group">
-							<button type="button" class="btn btn-link">+1만원</button>
+							<button type="button" class="btn btn-link" ng-click="transfer.amount=transfer.amount+10000">+1만원</button>
+						</div>
+						<div class="btn-group" role="group">
+							<button type="button" class="btn btn-link" ng-click="transfer.amount=0">초기화</button>
 						</div>
 					</div>
 				</div>
@@ -58,16 +60,25 @@
 						aria-hidden="true"></span>
 				</p>
 			</div>
+
 			<div class="form-group">
 				<label for="target" class="col-xs-2 control-label">입금계좌</label>
 				<div class="col-xs-10">
 					<div class="input-group">
-						<input type="text" class="form-control" id="target"
-							autocomplete="on"> <span class="input-group-btn">
-							<button class="btn btn-primary" type="button"
-								id="simpleTransfer1" data-toggle="modal"
-								data-target="#transferModal">간편이체</button>
-						</span>
+						<div class="input-group-btn">
+							<button type="button" class="btn btn-primary dropdown-toggle"
+								data-toggle="dropdown" aria-haspopup="true"
+								aria-expanded="false">
+								{{transfer.targetBank}} &nbsp;<span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu">
+								<li> <a href="" ng-click="transfer.targetBank='행복은행'">행복은행</a></li>
+								<li><a href=""  ng-click="transfer.targetBank='부자은행'">부자은행</a></li>
+								<li><a href="" ng-click="transfer.targetBank='웰빙은행'">웰빙은행</a></li>
+								<li><a href="" ng-click="transfer.targetBank='웰스파고은행'">웰스파고은행</a></li>
+							</ul>
+						</div>
+						<input type="text" class="form-control" aria-label="..." placeholder="344-00987-3412">
 					</div>
 				</div>
 			</div>
@@ -81,7 +92,8 @@
 				<div class="col-xs-10">
 					<div class="input-group">
 						<input type="text" class="form-control" id="target"
-							value="010-0000-0000"> <span class="input-group-btn">
+							value="{{transfer.phoneNumber}}"> <span
+							class="input-group-btn">
 							<button class="btn btn-default" type="button">번호변경</button>
 						</span>
 					</div>
@@ -119,14 +131,15 @@
 					<h4 class="modal-title">이체 실행</h4>
 				</div>
 				<div class="modal-body">
-					<div class="alert alert-danger" role="alert"><p>홍길동님의 XX은행
-						Xxxx-OOOOOO_XXXXX 50만원 이체 처리 합니다.</p>
+					<div class="alert alert-danger" role="alert">
+						<p>홍길동님의 XX은행 Xxxx-OOOOOO_XXXXX 50만원 이체 처리 합니다.</p>
 						<p>휴대폰에 공인인증서 암호를 입력해주세요</p>
-						</div>
-						<div class="center-block">
-					<div id="countdown"></div></div>
+					</div>
+					<div class="center-block">
+						<div id="countdown"></div>
+					</div>
 					<input type="text" class="form-control text-center" id="otp"
-									placeholder="OTP 번호">
+						placeholder="OTP 번호">
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
@@ -149,13 +162,10 @@
 		newYear = false;
 	}
 
-	$('#countdown')
-			.countdown(
-					{
-						timestamp : ts,
-						callback : function(days, hours, minutes, seconds) {
+	$('#countdown').countdown({
+		timestamp : ts,
+		callback : function(days, hours, minutes, seconds) {
 
-							
-						}
-					});
+		}
+	});
 </script>
